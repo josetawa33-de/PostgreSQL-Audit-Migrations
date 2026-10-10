@@ -2,3 +2,6 @@
 *.log
 *.backup
 *.dump
+
+# Local Flyway configuration
+/flyway.toml
