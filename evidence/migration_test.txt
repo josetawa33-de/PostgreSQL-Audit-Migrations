@@ -1,0 +1,16 @@
+﻿# Week 8 Migration Test Evidence
+
+Test database: capstone_migration_test
+Database version: PostgreSQL 18.6
+Migration tool: Flyway Community Edition 13.10.0
+
+## Result
+PASS - All 4 migrations validated and applied successfully to an empty test database.
+
+- V1__core_tables.sql - Applied
+- V2__audit_log.sql - Applied
+- V3__categories.sql - Applied
+- V4__security_roles.sql - Applied
+
+Final schema version: v4
+Original bootcamp database: Not used for this test.

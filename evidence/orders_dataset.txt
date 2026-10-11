@@ -1,0 +1,14 @@
+﻿# Orders Dataset Evidence
+
+Database: bootcamp
+Table: public.orders
+Total rows: 2,000,000
+
+| Status | Row count |
+|---|---:|
+| delivered | 666,701 |
+| pending | 666,421 |
+| shipped | 666,878 |
+
+Source: PostgreSQL GROUP BY status query.
+These counts were measured directly from the database.

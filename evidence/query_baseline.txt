@@ -1,0 +1,35 @@
+﻿QUERY: Retrieve the 50 most recent pending orders.
+
+SQL:
+EXPLAIN (ANALYZE, BUFFERS)
+SELECT id, created_at, customer_id
+FROM orders
+WHERE status = 'pending'
+ORDER BY created_at DESC
+LIMIT 50;
+
+BASELINE PLAN:
+Limit
+  (cost=0.42..6.98 rows=50 width=20)
+  (actual time=1.383..29.687 rows=50 loops=1)
+  Buffers: shared read=53
+
+  -> Index Scan using idx_pending_recent on orders
+       (cost=0.42..86691.97 rows=660933 width=20)
+       (actual time=1.067..29.335 rows=50 loops=1)
+       Index Searches: 1
+       Buffers: shared read=53
+
+Planning:
+  Buffers: shared hit=124 read=4
+Planning Time: 11.195 ms
+Execution Time: 29.754 ms
+
+OBSERVATION:
+PostgreSQL used the existing partial index idx_pending_recent to retrieve
+the requested rows in descending creation-time order. The query returned
+50 rows. The measured execution time was 29.754 ms in this run.
+
+NOTE:
+This is the current indexed baseline. A valid before-and-after optimization
+claim still requires a comparable test and measured result.

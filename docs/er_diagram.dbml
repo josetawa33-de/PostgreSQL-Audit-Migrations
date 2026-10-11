@@ -1,0 +1,21 @@
+﻿Table students {
+  id integer [pk, increment]
+  name varchar(100) [not null]
+  age integer
+}
+
+Table audit_log {
+  id bigint [pk, increment]
+  tbl text [not null]
+  op text [not null]
+  old_row jsonb
+  new_row jsonb
+  changed_by text
+  at timestamptz
+}
+
+Table categories {
+  id integer [pk, increment]
+  name text [not null]
+  parent_id integer [ref: > categories.id, note: 'Optional parent category']
+}

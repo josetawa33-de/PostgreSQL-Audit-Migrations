@@ -1,0 +1,16 @@
+﻿# Week 8 Backup and Restore Verification
+Backup file: backups/capstone_2026-10-10_081919.dump
+Restored database: bootcamp_restore_test
+Restore status: SUCCESSFUL
+Verification date: 2026-10-10 08:27:06
+
+## Restored table row counts
+ table_name | row_count 
+------------+-----------
+ audit_log  |         5
+ categories |         4
+ orders     |   2000000
+ students   |         2
+(4 rows)
+
+
